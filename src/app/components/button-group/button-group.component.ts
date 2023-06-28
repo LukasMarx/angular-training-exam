@@ -52,7 +52,6 @@ export class ButtonGroupComponent
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes['correctButtonValue']) {
       this.buttonGroupService.setCorrectValue(
         changes['correctButtonValue'].currentValue
