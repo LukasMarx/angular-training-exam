@@ -1,0 +1,15 @@
+<ng-container *ngIf="parent && name" [formGroup]="parent">
+  <span [innerHTML]="question" style="margin-bottom: 8px"></span>
+  <app-button-group
+    [formControlName]="name"
+    [correctButtonValue]="answer"
+    [showCorrectButton]="showCorrection"
+  >
+    <button
+      appButtonGroupButton
+      *ngFor="let option of options"
+      [value]="option"
+      [text]="option"
+    ></button>
+  </app-button-group>
+</ng-container>

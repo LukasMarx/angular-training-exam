@@ -1,0 +1,19 @@
+<h1>Result</h1>
+<form [formGroup]="answersFormGroup" class="form">
+  <app-question
+    *ngFor="let question of questions$ | async; index as i"
+    [parent]="answersFormGroup"
+    [question]="question.question"
+    [answer]="question.correct_answer"
+    [options]="question.all_answers"
+    [name]="getQuestionName(i + 1)"
+    [showCorrection]="true"
+  ></app-question>
+  <div
+    class="score"
+    [style.background-color]="getScoreBackgroundColor() | async"
+  >
+    You scored {{ getCorrectAnswerCount() | async }} out of 5
+  </div>
+  <button (click)="createNewQuiz()">Create a new quiz</button>
+</form>

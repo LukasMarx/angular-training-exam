@@ -1,0 +1,8 @@
+<div
+  class="button"
+  [class.selected]="isSelected$ | async"
+  [class.correction]="isCorretion$ | async"
+>
+  <span *ngIf="text" [innerHtml]="text"></span>
+  <ng-content></ng-content>
+</div>
